@@ -1,5 +1,8 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
 .App {
-  text-align: center;
+  text-align: start;
 }
 
 .App-logo {

@@ -1,0 +1,6 @@
+.customCard {
+  background-color: lightgreen;
+}
+.taskContainer {
+  display: flex;
+}
