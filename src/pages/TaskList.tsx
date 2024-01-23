@@ -6,9 +6,22 @@ import { Button, Card, Container } from "react-bootstrap";
 import "./styles/taskList.css";
 
 const TaskList = () => {
-  const [tasks, setTask] = useState<TaskPropType["tasks"][]>(tasksData);
-  const [filteredStatusTasks, setFilteredStatusTasks] =
-    useState<TaskPropType["tasks"][]>(tasksData);
+  const [tasks, setTask] = useState<TaskPropType["tasks"][]>([
+    {
+      id: 0,
+      title: "",
+      status: "complete",
+    },
+  ]);
+  const [filteredStatusTasks, setFilteredStatusTasks] = useState<
+    TaskPropType["tasks"][]
+  >([
+    {
+      id: 0,
+      title: "",
+      status: "complete",
+    },
+  ]);
   const [status, setStatus] = useState(false);
 
   const changeStatus = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,9 +29,11 @@ const TaskList = () => {
     let filteredTask = tasksData.filter((task) => task.id === taskId);
     filteredTask[0].status = e.target.checked ? "complete" : "incomplete";
     setTask((prev) => {
-      let toReplaceData = prev.filter((data) => data.id === filteredTask[0].id);
-      let toReplaceIndex = prev.indexOf(toReplaceData[0]);
-      prev.splice(toReplaceIndex, 1, filteredTask[0]);
+      let toReplaceData = prev?.filter(
+        (data) => data.id === filteredTask[0].id
+      );
+      let toReplaceIndex = prev?.indexOf(toReplaceData[0]);
+      prev?.splice(toReplaceIndex, 1, filteredTask[0]);
       return [...prev];
     });
   };
